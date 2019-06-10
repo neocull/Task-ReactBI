@@ -1,0 +1,57 @@
+h1 {
+  margin-bottom: 10px;
+}
+
+.products {
+  width: 800px;
+  border: 1px #000000 solid;
+  margin: 0 auto;
+
+  & caption {
+    font-size: 28px;
+    color: #000000;
+  }
+
+  & td,
+  & th {
+    height: 50px;
+    padding-left: 10px;
+  }
+
+  & th {
+    font-size: 18px;
+  }
+}
+
+.article {
+
+  &__buttons {
+
+    text-align: center;
+
+    &_minus {
+      width: 60px;
+      margin-right: 30px;
+    }
+
+    &_del {
+      width: 150px;
+    }
+
+  }
+
+}
+
+.controls {
+  width: 800px;
+  margin: 30px auto 0;
+
+  & button {
+    width: 35%;
+  }
+
+  &__clear {
+    float: right;
+  }
+
+}
