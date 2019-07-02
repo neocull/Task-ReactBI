@@ -16,8 +16,11 @@ h1 {
   & th {
     height: 50px;
     padding-left: 10px;
+    text-align: center;
   }
-
+  & td.AllPrice {
+    text-align: left;
+  }
   & th {
     font-size: 18px;
   }
