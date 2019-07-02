@@ -8,28 +8,24 @@ import {Basket} from "./Basket";
 class App extends React.Component {
 
     state = {
-        window: true,
+        showBasket: true,
 
     };
 
-    updateData = (value) => {
-        this.setState({ window: value },() => {
-            if(window) {
-                return <Basket data={productsData} updateData={this.updateData}/>
-            } else {
-                return <Products data={productsData} updateData={this.updateData}/>
-            }
+    updateData = () => {
+        this.setState({
+            showBasket: !this.state.showBasket
         })
     };
 
     render() {
-        const {window} = this.state;
-        if(window) {
-            return <Basket data={productsData} updateData={this.updateData}/>
-        } else {
-            return <Products data={productsData} updateData={this.updateData}/>
+        const {showBasket} = this.state;
+            return (
+                showBasket ?
+                    <Basket data={productsData} updateData={this.updateData}/> :
+                    <Products data={productsData} updateData={this.updateData}/>
+            )
         }
-    };
 
 
 }
