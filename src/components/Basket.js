@@ -1,5 +1,7 @@
 import React from 'react'
 
+import {BasketItem} from "./BasketItem";
+
 class Basket extends React.Component {
 
     constructor(props) {
@@ -11,10 +13,6 @@ class Basket extends React.Component {
             items: data
 
         }
-    }
-
-    sumPrice(price, quantity) {
-       return '$'+(+price.slice(1,price.length))*quantity;
     }
 
     delQuantity(id) {
@@ -70,26 +68,14 @@ class Basket extends React.Component {
                 </thead>
                 <tbody>
                 {
-                    this.state.items.map((item, key) => {
+                    this.state.items.map((item) => {
                         if (item.quantity) {
-                            return <tr key={key}>
-                                <td className="article__name">{item.name}</td>
-                                <td className="article__price">{this.sumPrice(item.price, item.quantity)}</td>
-                                <td className="article__quantity">{item.quantity}</td>
-                                <td className="article__buttons">
-                                    <button onClick={() => this.delQuantity(item.id)}
-                                            className="article__buttons_minus">-
-                                    </button>
-                                    <button onClick={() => this.delAllQuantity(item.id)}
-                                            className="article__buttons_del">Удвлить все
-                                    </button>
-                                </td>
-                            </tr>
+                            return <BasketItem key={item.id} items={item} delQuantity={this.delQuantity} delAllQuantity={this.delAllQuantity}/>
                         }
                     })
                 }
                 <tr>
-                    <td colSpan={4}>
+                    <td colSpan={4} className="AllPrice">
                         Всего: ${
                         this.state.items.reduce((sum, item) => {
                             const price = ((+item.price.slice(1,item.price.length))*item.quantity);
