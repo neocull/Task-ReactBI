@@ -1,5 +1,7 @@
 import React from 'react'
 
+import {ProductsItem} from "./ProductsItem";
+
 class Products extends React.Component {
 
     constructor(props) {
@@ -40,18 +42,11 @@ class Products extends React.Component {
                     </thead>
                     <tbody>
                     {
-                        this.state.items.map((item, key) => {
-                            return <tr key={key}>
-                                <td className="article__name">{item.name}</td>
-                                <td className="article__price">{item.price}</td>
-                                <td className="article__quantity">{item.quantity}</td>
-                                <td className="article__buttons">
-                                    <button onClick={() => this.addQuantity(item.id, item.quantity)}
-                                        className="article__buttons_minus">+</button>
-                                </td>
-                                </tr>
+                        this.state.items.map((item) => {
+                            return <ProductsItem key={item.id} items={item} addQuantity={this.addQuantity}/>
                         })
                     }
+
                     </tbody>
                 </table>
                 <div className="controls">
