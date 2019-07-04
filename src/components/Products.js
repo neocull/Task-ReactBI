@@ -14,7 +14,7 @@ class Products extends React.Component {
         }
     }
 
-    addQuantity(id) {
+    addQuantity = (id) => {
         this.setState({
                 ...this.state,
                 items: this.state.items.map(item => {
