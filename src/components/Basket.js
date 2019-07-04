@@ -15,7 +15,7 @@ class Basket extends React.Component {
         }
     }
 
-    delQuantity(id) {
+    delQuantity = (id) => {
         this.setState({
                 ...this.state,
                 items: this.state.items.map(item => {
@@ -28,7 +28,7 @@ class Basket extends React.Component {
         );
     };
 
-    delAllQuantity(id) {
+    delAllQuantity = (id) => {
         this.setState({
                 ...this.state,
                 items: this.state.items.map(item => {
